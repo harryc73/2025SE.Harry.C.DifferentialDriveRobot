@@ -1,6 +1,6 @@
 #include "LineSensor.h"
-#define LEFT_LINE_PIN 0
-#define RIGHT_LINE_PIN 1
+#define LEFT_LINE_PIN 12
+#define RIGHT_LINE_PIN 13
 
 LineSensor lineSensor(LEFT_LINE_PIN, RIGHT_LINE_PIN);
 

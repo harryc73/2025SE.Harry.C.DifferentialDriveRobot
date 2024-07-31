@@ -58,16 +58,16 @@ String LineSensor::getState()
   String state = "Left: "; // String so it can be a string
 
   if(leftState == HIGH)
-    state += "Line detected";
+    state += "Line Detected";
   else
     state += "No Line Detected";
 
-  state += "Right: ";
+  state += " Right: ";
   
   if(rightState == HIGH)
-    state += "Line detected";
-  else
     state += "No Line Detected";
+  else
+    state += "Line Detected";
   
   return state;
 }
