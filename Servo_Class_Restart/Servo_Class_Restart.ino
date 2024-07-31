@@ -1,9 +1,9 @@
-#define SERVO_PIN 11
+#define LEFT_SERVO_PIN 9
+#define RIGHT_SERVO_PIN 10
 #include <Servo.h>
 #include "Motor.h"
 
-Motor motor(SERVO_PIN);
-
+Motor motor(LEFT_SERVO_PIN, RIGHT_SERVO_PIN);
 
 void setup() {
   motor.init();

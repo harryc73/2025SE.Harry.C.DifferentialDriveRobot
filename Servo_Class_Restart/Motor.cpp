@@ -1,27 +1,42 @@
 #include "Motor.h"
 #include <Servo.h>
 
-Motor::Motor(byte pin)
+const unsigned long leftWheelGoSpeed = 2300;
+const unsigned long rightWheelGoSpeed = 2300;
+
+const unsigned long leftWheelStopSpeed = 1500;
+const unsigned long rightWheelStopSpeed = 1500;
+
+const unsigned long leftWheelReverseSpeed = 700;
+const unsigned long rightWheelReverseSpeed = 700;
+
+
+Motor::Motor(byte leftPin, byte rightPin)
   {
-    this->_pin = pin;
+    this->_pinLeft = leftPin;
+    this->_pinRight = rightPin;
   }
 
   void Motor::init()
   {
-    _servo.attach(_pin, 700, 2300);
+    leftServo.attach(_pinLeft, 700, 2300);
+    rightServo.attach(_pinRight, 700, 2300);
   }
 
   void Motor::accelerate()
   {
-    _servo.writeMicroseconds(2300);
+    leftServo.writeMicroseconds(rightWheelGoSpeed);
+    rightServo.writeMicroseconds(leftWheelGoSpeed);
   }
 
   void Motor::brake()
   {
-    _servo.writeMicroseconds(1500);
+    leftServo.writeMicroseconds(leftWheelStopSpeed);
+    rightServo.writeMicroseconds(rightWheelStopSpeed);
   }
 
   void Motor::reverse()
   {
-    _servo.write(700);
+    leftServo.writeMicroseconds(leftWheelReverseSpeed);
+    rightServo.writeMicroseconds(rightWheelReverseSpeed);
   }

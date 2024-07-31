@@ -7,13 +7,25 @@
 class Motor
 {
 private:
-  byte _pin;
-  Servo _servo;
+  byte _pinLeft;
+  byte _pinRight;
+  Servo leftServo;
+  Servo rightServo;
+
+  const unsigned long leftWheelGoSpeed;
+  const unsigned long rightWheelGoSpeed;
+
+  const unsigned long leftWheelStopSpeed;
+  const unsigned long rightWheelStopSpeed;
+
+  const unsigned long leftWheelReverseSpeed;
+  const unsigned long rightWheelReverseSpeed;
+
 public:
 
   Motor() {}
 
-  Motor(byte pin);
+  Motor(byte leftPin, byte rightPin);
 
   void init();
 
