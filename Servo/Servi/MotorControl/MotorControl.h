@@ -1,10 +1,11 @@
-#ifndef CARCONTROLLER_H
-#define CARCONTROLLER_H
+#ifndef MOTORCONTROL_H
+#define MOTORCONTROL_H
 #include <Servo.h>
 
-class CarController
+class MotorControl
 {
 private:
+
   Servo leftServo;
   Servo rightServo;
 
@@ -15,7 +16,7 @@ private:
 
 public:
 
-  CarController() {}
+  MotorControl() {}
 
   void init();
 
