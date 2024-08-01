@@ -10,7 +10,6 @@ void LineSensor::init()
 {
   pinMode(_leftPin, INPUT);
   pinMode(_rightPin, INPUT);
-
   }
 
 byte LineSensor::readLeftState()
