@@ -1,15 +1,6 @@
 #include "Motor.h"
 #include <Servo.h>
 
-const unsigned long leftWheelGoSpeed = 2300;
-const unsigned long rightWheelGoSpeed = 2300;
-
-const unsigned long leftWheelStopSpeed = 1500;
-const unsigned long rightWheelStopSpeed = 1500;
-
-const unsigned long leftWheelReverseSpeed = 700;
-const unsigned long rightWheelReverseSpeed = 700;
-
 
 Motor::Motor(byte leftPin, byte rightPin)
   {
