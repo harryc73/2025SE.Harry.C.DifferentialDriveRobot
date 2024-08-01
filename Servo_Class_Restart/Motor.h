@@ -12,14 +12,16 @@ private:
   Servo leftServo;
   Servo rightServo;
 
-  const unsigned long leftWheelGoSpeed;
-  const unsigned long rightWheelGoSpeed;
 
-  const unsigned long leftWheelStopSpeed;
-  const unsigned long rightWheelStopSpeed;
+  // must add values here in here instead of cpp file to properly intitialise it for the R4 Board
+  const unsigned long leftWheelGoSpeed = 2300;
+  const unsigned long rightWheelGoSpeed = 2300;
 
-  const unsigned long leftWheelReverseSpeed;
-  const unsigned long rightWheelReverseSpeed;
+  const unsigned long leftWheelStopSpeed = 1500;
+  const unsigned long rightWheelStopSpeed = 1500;
+
+  const unsigned long leftWheelReverseSpeed = 700;
+  const unsigned long rightWheelReverseSpeed = 700;
 
 public:
 
