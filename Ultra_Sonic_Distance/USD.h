@@ -11,20 +11,23 @@ class USD
   byte _USDPin;
   Ultrasonic myUSD;
 
-  const unsigned float maxDistThreshold = 25;
+  const unsigned int maxDistThreshold = 25; // needs to be tested
+  long RangeInCentimeters;
 
 
   public:
 
-  USD() {}
+  USD() {} // dont touch 
 
-  USD(byte pin)
+  USD(byte pin);
 
-  void init()
+  void init();
 
-  void getDistVal()
+  void getDistVal();
+
+  bool isCollision();
 
   
+};
 
-
-}
+#endif

@@ -2,12 +2,14 @@
 #include "USD.h"
 #define USD_PIN 5
 
-void setup() {
-  // put your setup code here, to run once:
+USD usd(USD_PIN);
 
+void setup() {
+  Serial.begin(9600);
+  usd.init();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  usd.getDistVal();
+  usd.isCollision();
 }
