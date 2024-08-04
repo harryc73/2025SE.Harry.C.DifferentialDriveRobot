@@ -11,21 +11,24 @@ private:
   Ultrasonic myUSD;
 
   const unsigned int maxDistThreshold = 25; // needs to be tested
-  long RangeInCentimeters;
+  long RangeInMillimeters;
 
 
 public:
 
-  USD() {}
+  // USD() {} removed this method because I don't need to call the class without parameters and its fued with the Ultrasonic libary
 
   USD(byte pin);
 
-  void init();
+  // void init() I dont really need to initialise anything
 
   long getDistVal();
 
   bool isCollision();
 
+  //testing class
+  
+  String readState();
   
 };
 

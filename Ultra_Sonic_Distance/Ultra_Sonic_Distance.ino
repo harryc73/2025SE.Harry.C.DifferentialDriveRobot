@@ -6,15 +6,16 @@ USD usd(USD_PIN);
 
 void setup() {
   Serial.begin(9600);
-  usd.init();
 }
 
 void loop() {
-  
-  Serial.print(getDistVal())
+  Serial.print("Dist Val: ");
+  Serial.print(usd.getDistVal());
+  Serial.print("Collision Status");
 
-  if (usd.isCollision()) 
-    Serial.println("Collision detected!");
-  else 
-    Serial.println("No collision.");
+  if(usd.isCollision())
+    Serial.print("Collision Impending");
+  else
+    Serial.print("No Impending Collison");
+  delay(100);
 }

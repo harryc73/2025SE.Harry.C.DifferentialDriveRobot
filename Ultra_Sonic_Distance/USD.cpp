@@ -7,16 +7,7 @@ USD::USD(byte pin) : myUSD(pin) //initialise both at the same time, as calling t
   this->_USDPin = pin;
 }
 
-
-void USD::getDistVal()
-=======
-void USD::init()
-{
-  Ultrasonic myUSD(_USDPin);
-}
-
 long USD::getDistVal()
->>>>>>> Stashed changes
 {
   RangeInMillimeters = myUSD.MeasureInMillimeters();
   return RangeInMillimeters;
@@ -24,8 +15,15 @@ long USD::getDistVal()
 
 bool USD::isCollision()
 {
+  getDistVal();
   if(RangeInMillimeters <= maxDistThreshold)
     return true;
   else
     return false;
+}
+
+String USD::readState()
+{
+  getDistVal();
+  isCollision();
 }
