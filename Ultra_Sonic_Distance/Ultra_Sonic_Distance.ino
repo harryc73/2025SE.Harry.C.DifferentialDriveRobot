@@ -10,6 +10,11 @@ void setup() {
 }
 
 void loop() {
-  usd.getDistVal();
-  usd.isCollision();
+  
+  Serial.print(getDistVal())
+
+  if (usd.isCollision()) 
+    Serial.println("Collision detected!");
+  else 
+    Serial.println("No collision.");
 }

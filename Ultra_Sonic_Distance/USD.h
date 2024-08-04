@@ -6,8 +6,7 @@
 
 class USD
 {
-  private:
-
+private:
   byte _USDPin;
   Ultrasonic myUSD;
 
@@ -15,15 +14,15 @@ class USD
   long RangeInCentimeters;
 
 
-  public:
+public:
 
-  USD() {} // dont touch 
+  USD() {}
 
   USD(byte pin);
 
   void init();
 
-  void getDistVal();
+  long getDistVal();
 
   bool isCollision();
 
