@@ -1,5 +1,5 @@
-#define LEFT_SERVO_PIN 9
-#define RIGHT_SERVO_PIN 10
+#define LEFT_SERVO_PIN 6
+#define RIGHT_SERVO_PIN 7
 #include <Servo.h>
 #include "Motor.h"
 
