@@ -1,5 +1,5 @@
-#define LEFT_SERVO_PIN 6
-#define RIGHT_SERVO_PIN 7
+#define LEFT_SERVO_PIN 10
+#define RIGHT_SERVO_PIN 9
 #include <Servo.h>
 #include "Motor.h"
 
@@ -11,9 +11,7 @@ void setup() {
 
 void loop() {
   motor.accelerate();
-  delay(100);
-  motor.brake();
-  delay(100);
+  delay(1000);
   motor.reverse();
-  delay(100);
+  delay(1000);
 }

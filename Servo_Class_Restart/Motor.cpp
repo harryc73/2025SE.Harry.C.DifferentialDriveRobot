@@ -16,9 +16,10 @@ Motor::Motor(byte leftPin, byte rightPin)
 
   void Motor::accelerate()
   {
-    leftServo.writeMicroseconds(rightWheelGoSpeed);
-    rightServo.writeMicroseconds(leftWheelGoSpeed);
+    leftServo.writeMicroseconds(leftWheelGoSpeed);
+    rightServo.writeMicroseconds(rightWheelGoSpeed);
     // must add delay to methods like these
+    delay(100);
   }
 
   void Motor::brake()
@@ -31,4 +32,6 @@ Motor::Motor(byte leftPin, byte rightPin)
   {
     leftServo.writeMicroseconds(leftWheelReverseSpeed);
     rightServo.writeMicroseconds(rightWheelReverseSpeed);
+
+    delay(100);
   }
