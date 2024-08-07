@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 #include "LineSensor.h"
 #include "Motor.h"
 #include "CarController.h"
@@ -16,13 +15,7 @@ LineSensor lineSensor(LEFT_LINE_PIN, RIGHT_LINE_PIN);
 Motor motor(LEFT_SERVO_PIN, RIGHT_SERVO_PIN);
 
 CarController carController(lineSensor, motor);
-=======
-#include "CarController.h"
-#include "LineSensor.h"
-#include "Motor.h"
 
-#define LEFT_SERVO_PIN 
->>>>>>> Stashed changes
 
 void setup() {
   motor.init();
