@@ -12,14 +12,17 @@ class CarController
 
 private:
 
-  LineSensor _lineSensor;
-  Motor _motor;
+  LineSensor* lineSensor;
+  Motor* motor;
+  
 
 public:
 
   CarController () {}
 
-  CarController(LineSensor &lineSensor, Motor &motor) 
+  CarController(LineSensor* lineSensor, Motor* motor);
+
+  void init();
 
   void followLine();
 };

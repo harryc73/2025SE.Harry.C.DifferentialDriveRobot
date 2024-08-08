@@ -36,5 +36,9 @@ public:
 
   void reverse();
 
+  void turnRight();
+
+  void turnLeft();
+
 };
 #endif

@@ -4,16 +4,30 @@
 #include "CarController.h"
 #include <Arduino.h>
 
-CarController::CarController(LineSensor &lineSensor, Motor &motor) 
+CarController::CarController(LineSensor* lineSensor, Motor* motor)
 {
-  this->_lineSensor = lineSensor;
-  this->_motor = motor;
+  this->lineSensor = lineSensor;
+  this->motor = motor;
 }
+
+  void CarController::init()
+  {
+    lineSensor->init();
+    motor->init();
+  }
 
   void CarController::followLine()
   {
-    if((_lineSensor.isLeftLine()) && (_lineSensor.isRightLine()))
-      _motor.accelerate();
-    else
-      _motor.brake();
+    if((lineSensor->isLeftLine()) && (lineSensor->isRightLine())){
+      motor->accelerate();
+    }
+    else if((!lineSensor->isLeftLine()) && (lineSensor->isRightLine())){
+      motor->turnLeft();
+    }
+    else if((lineSensor->isLeftLine()) && (!lineSensor->isRightLine())){
+      motor->turnRight();
+    }
+    else{
+      motor->brake();
+    }
   }

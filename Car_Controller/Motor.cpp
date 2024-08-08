@@ -26,12 +26,30 @@ Motor::Motor(byte leftPin, byte rightPin)
   {
     leftServo.writeMicroseconds(leftWheelStopSpeed);
     rightServo.writeMicroseconds(rightWheelStopSpeed);
+
+    delay(100);
   }
 
   void Motor::reverse()
   {
     leftServo.writeMicroseconds(leftWheelReverseSpeed);
     rightServo.writeMicroseconds(rightWheelReverseSpeed);
+
+    delay(100);
+  }
+
+  void Motor::turnLeft()
+  {
+    leftServo.writeMicroseconds(leftWheelStopSpeed);
+    rightServo.writeMicroseconds(rightWheelGoSpeed);
+
+    delay(100);
+  }
+
+  void Motor::turnRight()
+  {
+    leftServo.writeMicroseconds(leftWheelGoSpeed);
+    rightServo.writeMicroseconds(rightWheelStopSpeed);
 
     delay(100);
   }

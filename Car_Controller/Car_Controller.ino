@@ -14,12 +14,11 @@ LineSensor lineSensor(LEFT_LINE_PIN, RIGHT_LINE_PIN);
 
 Motor motor(LEFT_SERVO_PIN, RIGHT_SERVO_PIN);
 
-CarController carController(lineSensor, motor);
+CarController carController(&lineSensor, &motor);
 
 
 void setup() {
-  motor.init();
-  lineSensor.init();
+  carController.init();
 }
 
 void loop() {
