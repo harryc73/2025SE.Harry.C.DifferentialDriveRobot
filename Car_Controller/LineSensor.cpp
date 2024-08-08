@@ -18,21 +18,21 @@ void LineSensor::init()
 
 byte LineSensor::readLeftState()
 {
-  leftState = analogRead(_leftPin);
+  leftState = digitalRead(_leftPin);
   return leftState;
 }
 
 byte LineSensor::readRightState()
 {
-  rightState = analogread(_rightPin);
+  rightState = digitalRead(_rightPin);
   return rightState;
 }
 
 
 byte LineSensor::readState()
 {
-  leftState = analogRead(_leftPin);
-  rightState = analogRead(_rightPin);
+  leftState = digitalRead(_leftPin);
+  rightState = digitalRead(_rightPin);
 }
 
 bool LineSensor::isLeftLine()
