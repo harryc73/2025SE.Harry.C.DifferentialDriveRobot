@@ -23,15 +23,15 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   void CarController::followLine()
   {
     if((lineSensor->isLeftLine()) && (lineSensor->isRightLine())){
-      motor->accelerate();
+      motor->brake();
     }
     else if((!lineSensor->isLeftLine()) && (lineSensor->isRightLine())){
-      motor->turnLeft();
-    }
-    else if((lineSensor->isLeftLine()) && (!lineSensor->isRightLine())){
       motor->turnRight();
     }
+    else if((lineSensor->isLeftLine()) && (!lineSensor->isRightLine())){
+      motor->turnLeft();
+    }
     else{
-      motor->brake();
+      motor->accelerate();
     }
   }

@@ -1,5 +1,9 @@
 #include "LineSensor.h"
 
+// if they both on the line both the analog 31 for left, 32 for right
+//If the left is off the line it sits at 31-31, and right sits above 40
+// if the right is off the line it sits at 31-32, and left is above 40
+
 LineSensor::LineSensor(byte leftPin, byte rightPin)
 {
   this->_leftPin = leftPin;
@@ -14,21 +18,21 @@ void LineSensor::init()
 
 byte LineSensor::readLeftState()
 {
-  leftState = digitalRead(_leftPin);
+  leftState = analogRead(_leftPin);
   return leftState;
 }
 
 byte LineSensor::readRightState()
 {
-  rightState = digitalRead(_rightPin);
+  rightState = analogread(_rightPin);
   return rightState;
 }
 
 
 byte LineSensor::readState()
 {
-  leftState = digitalRead(_leftPin);
-  rightState = digitalRead(_rightPin);
+  leftState = analogRead(_leftPin);
+  rightState = analogRead(_rightPin);
 }
 
 bool LineSensor::isLeftLine()
