@@ -75,3 +75,8 @@ Motor::Motor(byte leftPin, byte rightPin, unsigned long goDelay)
     leftServo.writeMicroseconds(leftWheelGoSpeed);
     rightServo.writeMicroseconds(rightWheelStopSpeed);
   }
+
+  unsigned long Motor::getGoDelay()
+  {
+    return goDelay;
+  }

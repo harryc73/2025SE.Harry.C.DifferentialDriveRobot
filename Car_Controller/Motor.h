@@ -33,6 +33,8 @@ public:
 
   Motor(byte leftPin, byte rightPin, unsigned long goDelay);
 
+  unsigned long getGoDelay();
+
   void init();
 
   void accelerate();
