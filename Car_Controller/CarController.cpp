@@ -25,13 +25,13 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
     if((lineSensor->readLeftState() < 36) && (lineSensor->readRightState() < 36)){
       motor->accelerate();
     }
-    else if((lineSensor->readLeftState() > 36) && (lineSensor->isRightLine() < 36)){
+    else if((lineSensor->readLeftState() > 36) && (lineSensor->readRightState() < 36)){
       motor->turnRight();
     }
-    else if((lineSensor->isLeftLine() < 36) && (!lineSensor->isRightLine() > 36)){
+    else if((lineSensor->readLeftState() < 36) && (lineSensor->readRightState() > 36)){
       motor->turnLeft();
     }
     else{
-      motor->reverse();
+      motor->brake();
     }
   }

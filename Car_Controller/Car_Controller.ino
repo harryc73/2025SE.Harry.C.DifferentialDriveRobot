@@ -9,8 +9,8 @@
 #define LEFT_SERVO_PIN 10
 #define RIGHT_SERVO_PIN 9
 
-#define LEFT_LINE_PIN 5
-#define RIGHT_LINE_PIN 6
+#define LEFT_LINE_PIN 0
+#define RIGHT_LINE_PIN 1
 
 static const char* VersionNum = "V00.00.01";
 
