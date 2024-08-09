@@ -22,11 +22,16 @@ private:
   const unsigned int leftWheelReverseSpeed = 1400;
   const unsigned int rightWheelReverseSpeed = 1600;
 
+  unsigned long lastTimeGo;
+  unsigned long goDelay;
+
 public:
 
   Motor() {}
 
   Motor(byte leftPin, byte rightPin);
+
+  Motor(byte leftPin, byte rightPin, unsigned long goDelay);
 
   void init();
 
