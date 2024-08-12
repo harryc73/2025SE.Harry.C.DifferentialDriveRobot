@@ -19,8 +19,8 @@ public:
 
   void init();
 
-  byte readLeftState();
-  byte readRightState();
+  int readLeftState();
+  int readRightState();
 
   // need at some point
   bool isLeftLine();
