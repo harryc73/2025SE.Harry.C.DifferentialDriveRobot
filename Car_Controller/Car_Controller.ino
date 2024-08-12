@@ -21,9 +21,12 @@ CarController carController(&lineSensor, &motor, &VersionStatus);
 
 
 void setup() {
+  Serial.begin(9600);
   carController.init();
 }
 
 void loop() {
-  carController.followLine();
+  Serial.print(lineSensor.readLeftState());
+  Serial.print(" ");
+  Serial.print(lineSensor.readRightState());
 }
