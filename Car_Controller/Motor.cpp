@@ -26,52 +26,41 @@ Motor::Motor(byte leftPin, byte rightPin, unsigned long goDelay)
 
   void Motor::accelerate()
   {
-  unsigned long timeNow = millis();
-  if (timeNow - lastTimeGo >= goDelay) {
-    lastTimeGo = timeNow;
     leftServo.writeMicroseconds(leftWheelGoSpeed);
     rightServo.writeMicroseconds(rightWheelGoSpeed);
-    }
+    delay(200);
   }
 
   void Motor::brake()
   {
-  unsigned long timeNow = millis();
-  if (timeNow - lastTimeGo >= goDelay) {
-    lastTimeGo = timeNow;
+
     leftServo.writeMicroseconds(leftWheelStopSpeed);
     rightServo.writeMicroseconds(rightWheelStopSpeed);
-    }
+    delay(200);
   }
 
   void Motor::reverse()
   {
-  unsigned long timeNow = millis();
-  if (timeNow - lastTimeGo >= goDelay) {
-    lastTimeGo = timeNow;
+
     leftServo.writeMicroseconds(leftWheelReverseSpeed);
     rightServo.writeMicroseconds(rightWheelReverseSpeed);
-    }
+    delay(200);
   }
 
   void Motor::turnLeft()
   {
-  unsigned long timeNow = millis();
-  if (timeNow - lastTimeGo >= goDelay) {
-    lastTimeGo = timeNow;
+
     leftServo.writeMicroseconds(leftWheelStopSpeed);
     rightServo.writeMicroseconds(rightWheelGoSpeed);
-    }
+    delay(200);
   }
 
   void Motor::turnRight()
   {
-  unsigned long timeNow = millis();
-  if (timeNow - lastTimeGo >= goDelay) {
-    lastTimeGo = timeNow;
+
     leftServo.writeMicroseconds(leftWheelGoSpeed);
     rightServo.writeMicroseconds(rightWheelStopSpeed);
-    }
+    delay(200);
   }
 
   unsigned long Motor::getGoDelay()

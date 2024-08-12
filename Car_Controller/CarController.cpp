@@ -22,13 +22,13 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
 
   void CarController::followLine()
   {
-    if((lineSensor->readLeftState() < 36) && (lineSensor->readRightState() < 36)){
+    if((lineSensor->readLeftState() < 40) && (lineSensor->readRightState() < 40)){
       motor->accelerate();
     }
-    else if((lineSensor->readLeftState() > 36) && (lineSensor->readRightState() < 36)){
+    else if((lineSensor->readLeftState() > 40) && (lineSensor->readRightState() < 40)){
       motor->turnLeft();
     }
-    else if((lineSensor->readLeftState() < 36) && (lineSensor->readRightState() > 36)){
+    else if((lineSensor->readLeftState() < 40) && (lineSensor->readRightState() > 40)){
       motor->turnRight();
     }
     else{
@@ -39,4 +39,11 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   void CarController::TestMotors()
   {
     motor->accelerate();
+  }
+
+  void CarController::TestLines()
+  {
+    Serial.print(lineSensor->readLeftState());
+    Serial.print(" ");
+    Serial.println(lineSensor->readRightState());
   }

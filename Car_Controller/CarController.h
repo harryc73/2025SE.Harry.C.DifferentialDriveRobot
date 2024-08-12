@@ -32,6 +32,7 @@ public:
 
   void TestMotors();
 
+  void TestLines();
 
 };
 

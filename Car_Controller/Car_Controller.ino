@@ -6,8 +6,8 @@
 
 #include <Servo.h>
 
-#define LEFT_SERVO_PIN 5
-#define RIGHT_SERVO_PIN 6
+#define LEFT_SERVO_PIN 6
+#define RIGHT_SERVO_PIN 5
 
 #define LEFT_LINE_PIN 2
 #define RIGHT_LINE_PIN 3
@@ -21,9 +21,10 @@ CarController carController(&lineSensor, &motor, &VersionStatus);
 
 
 void setup() {
+  Serial.begin(115200);
   carController.init();
 }
 
 void loop() {
-  carController.TestMotors();
+  carController.followLine();
 }
