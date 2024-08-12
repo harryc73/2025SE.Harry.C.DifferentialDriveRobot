@@ -6,11 +6,11 @@
 
 #include <Servo.h>
 
-#define LEFT_SERVO_PIN 10
-#define RIGHT_SERVO_PIN 9
+#define LEFT_SERVO_PIN 5
+#define RIGHT_SERVO_PIN 6
 
-#define LEFT_LINE_PIN 0
-#define RIGHT_LINE_PIN 1
+#define LEFT_LINE_PIN 2
+#define RIGHT_LINE_PIN 3
 
 static const char* VersionNum = "V00.00.01";
 
@@ -21,12 +21,9 @@ CarController carController(&lineSensor, &motor, &VersionStatus);
 
 
 void setup() {
-  Serial.begin(9600);
   carController.init();
 }
 
 void loop() {
-  Serial.print(lineSensor.readLeftState());
-  Serial.print(" ");
-  Serial.print(lineSensor.readRightState());
+  carController.TestMotors();
 }

@@ -30,6 +30,8 @@ public:
 
   void followLine();
 
+  void TestMotors();
+
 
 };
 
