@@ -12,6 +12,9 @@ private:
   Servo leftServo;
   Servo rightServo;
 
+  unsigned int leftSpeed;
+  unsigned int rightSpeed;
+
   // must add values here in here instead of cpp file to properly intitialise it for the R4 Board
   const unsigned int leftWheelGoSpeed = 1550;
   const unsigned int rightWheelGoSpeed = 1450;
@@ -22,8 +25,13 @@ private:
   const unsigned int leftWheelReverseSpeed = 1450;
   const unsigned int rightWheelReverseSpeed = 1550;
 
+  const unsigned int leftWheelTurnSpeed = 1510;
+  const unsigned int rightWheelTurnSpeed = 1490;
+
   unsigned long lastTimeGo;
   unsigned long goDelay;
+
+  void setMotors(unsigned int leftSpeed, unsigned int rightSpeed); // this assigns the values to be passed to the update method
 
 public:
 
@@ -36,6 +44,8 @@ public:
   unsigned long getGoDelay();
 
   void init();
+
+  void update(); 
 
   void accelerate();
 

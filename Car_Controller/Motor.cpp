@@ -6,7 +6,10 @@ Motor::Motor(byte leftPin, byte rightPin)
   {
     this->_pinLeft = leftPin;
     this->_pinRight = rightPin;
-    goDelay = 200;
+    goDelay = 150;
+    lastTimeGo = 0;
+    leftSpeed = leftWheelStopSpeed;
+    rightSpeed = rightWheelStopSpeed;
   }
 
 
@@ -14,8 +17,10 @@ Motor::Motor(byte leftPin, byte rightPin, unsigned long goDelay)
   {
     this->_pinLeft = leftPin;
     this->_pinRight = rightPin;
-    lastTimeGo = millis();
     this->goDelay = goDelay;
+    lastTimeGo = 0;
+    leftSpeed = leftWheelStopSpeed;
+    rightSpeed = rightWheelStopSpeed;
   }
 
   void Motor::init()
@@ -24,43 +29,47 @@ Motor::Motor(byte leftPin, byte rightPin, unsigned long goDelay)
     rightServo.attach(_pinRight, 700, 2300);
   }
 
+
+  void Motor::setMotors(unsigned int leftSpeed, unsigned int rightSpeed)
+  {
+    this->leftSpeed = leftSpeed;
+    this->rightSpeed = rightSpeed;
+  }
+
+  void Motor::update()
+  {
+    unsigned long currentTime = millis();
+    if (currentTime - lastTimeGo >= goDelay)
+    {
+      leftServo.writeMicroseconds(leftSpeed);
+      rightServo.writeMicroseconds(rightSpeed);
+      lastTimeGo = currentTime;
+  }
+  }
+
   void Motor::accelerate()
   {
-    leftServo.writeMicroseconds(leftWheelGoSpeed);
-    rightServo.writeMicroseconds(rightWheelGoSpeed);
-    delay(200);
+    setMotors(leftWheelGoSpeed, rightWheelGoSpeed);
   }
 
   void Motor::brake()
   {
-
-    leftServo.writeMicroseconds(leftWheelStopSpeed);
-    rightServo.writeMicroseconds(rightWheelStopSpeed);
-    delay(200);
+    setMotors(leftWheelStopSpeed, rightWheelStopSpeed);
   }
 
   void Motor::reverse()
   {
-
-    leftServo.writeMicroseconds(leftWheelReverseSpeed);
-    rightServo.writeMicroseconds(rightWheelReverseSpeed);
-    delay(200);
+    setMotors(leftWheelReverseSpeed, rightWheelReverseSpeed);
   }
 
   void Motor::turnLeft()
   {
-
-    leftServo.writeMicroseconds(leftWheelStopSpeed);
-    rightServo.writeMicroseconds(rightWheelGoSpeed);
-    delay(200);
+    setMotors(leftWheelStopSpeed, rightWheelTurnSpeed);
   }
 
   void Motor::turnRight()
   {
-
-    leftServo.writeMicroseconds(leftWheelGoSpeed);
-    rightServo.writeMicroseconds(rightWheelStopSpeed);
-    delay(200);
+    setMotors(leftWheelTurnSpeed, rightWheelStopSpeed);
   }
 
   unsigned long Motor::getGoDelay()
