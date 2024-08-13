@@ -6,7 +6,7 @@
 
 #include <Servo.h>
 
-#define LEFT_SERVO_PIN 6
+#define LEFT_SERVO_PIN 9
 #define RIGHT_SERVO_PIN 5
 
 #define LEFT_LINE_PIN 2
