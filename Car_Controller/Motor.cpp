@@ -39,7 +39,7 @@ Motor::Motor(byte leftPin, byte rightPin, unsigned long goDelay)
   void Motor::update()
   {
     unsigned long currentTime = millis();
-    if (currentTime - lastTimeGo >= goDelay)
+    while (currentTime - lastTimeGo <= goDelay)
     {
       leftServo.writeMicroseconds(leftSpeed);
       rightServo.writeMicroseconds(rightSpeed);
