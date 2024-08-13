@@ -40,6 +40,7 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   void CarController::TestMotors()
   {
     motor->accelerate();
+    motor->update();
   }
 
   void CarController::TestLines()
