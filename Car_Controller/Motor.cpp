@@ -6,7 +6,7 @@ Motor::Motor(byte leftPin, byte rightPin)
   {
     this->_pinLeft = leftPin;
     this->_pinRight = rightPin;
-    goDelay = 150;
+    goDelay = 100;
     lastTimeGo = 0;
     leftSpeed = leftWheelStopSpeed;
     rightSpeed = rightWheelStopSpeed;
@@ -39,7 +39,7 @@ Motor::Motor(byte leftPin, byte rightPin, unsigned long goDelay)
   void Motor::update()
   {
     unsigned long currentTime = millis();
-    while (currentTime - lastTimeGo <= goDelay)
+    if (currentTime - lastTimeGo >= goDelay)
     {
       leftServo.writeMicroseconds(leftSpeed);
       rightServo.writeMicroseconds(rightSpeed);
