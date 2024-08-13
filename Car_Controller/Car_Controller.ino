@@ -6,13 +6,8 @@
 
 #include <Servo.h>
 
-<<<<<<< Updated upstream
-#define LEFT_SERVO_PIN 9
-#define RIGHT_SERVO_PIN 5
-=======
 #define LEFT_SERVO_PIN 10
 #define RIGHT_SERVO_PIN 10
->>>>>>> Stashed changes
 
 #define LEFT_LINE_PIN 2
 #define RIGHT_LINE_PIN 3
