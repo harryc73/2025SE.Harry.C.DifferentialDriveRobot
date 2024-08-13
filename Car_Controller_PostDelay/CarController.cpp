@@ -22,13 +22,13 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
 
   void CarController::followLine()
   {
-    if((lineSensor->readLeftState() < 40) && (lineSensor->readRightState() < 40)){
+    if((lineSensor->readLeftState() < 36) && (lineSensor->readRightState() < 36)){
       motor->accelerate();
     }
-    else if((lineSensor->readLeftState() > 40) && (lineSensor->readRightState() < 40)){
+    else if((lineSensor->readLeftState() > 36) && (lineSensor->readRightState() < 36)){
       motor->turnLeft();
     }
-    else if((lineSensor->readLeftState() < 40) && (lineSensor->readRightState() > 40)){
+    else if((lineSensor->readLeftState() < 36) && (lineSensor->readRightState() > 36)){
       motor->turnRight();
     }
     else{

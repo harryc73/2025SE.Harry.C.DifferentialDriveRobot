@@ -2,8 +2,6 @@
 #include "Motor.h"
 #include "CarController.h"
 #include "LedArray.h"
-
-
 #include <Servo.h>
 
 #define LEFT_SERVO_PIN 9
@@ -21,7 +19,6 @@ CarController carController(&lineSensor, &motor, &VersionStatus);
 
 
 void setup() {
-  Serial.begin(115200);
   carController.init();
 }
 
