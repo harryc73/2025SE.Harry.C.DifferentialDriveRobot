@@ -29,14 +29,7 @@ Motor::Motor(byte leftPin, byte rightPin, unsigned long goDelay)
     rightServo.attach(_pinRight, 700, 2300);
   }
 
-
   void Motor::setMotors(unsigned int leftSpeed, unsigned int rightSpeed)
-  {
-    this->leftSpeed = leftSpeed;
-    this->rightSpeed = rightSpeed;
-  }
-
-  void Motor::update()
   {
     unsigned long currentTime = millis();
     if (currentTime - lastTimeGo >= goDelay)

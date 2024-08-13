@@ -34,13 +34,11 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
     else{
       motor->brake();
     }
-    motor->update(); // while it looks different the values are given depending on the outcome of each loop to the update method which then writes the values to the motors, allowing for the delay
   }
 
   void CarController::TestMotors()
   {
     motor->accelerate();
-    motor->update();
   }
 
   void CarController::TestLines()
