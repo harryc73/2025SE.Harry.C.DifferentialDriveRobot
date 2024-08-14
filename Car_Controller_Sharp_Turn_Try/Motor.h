@@ -16,17 +16,20 @@ private:
   unsigned int rightSpeed;
 
   // must add values here in here instead of cpp file to properly intitialise it for the R4 Board
-  const unsigned int leftWheelGoSpeed = 1525;
+  // 1500 is stop
+  // Right: above 1500 is reverse and below 1500 is accelerate
+  // Left: above 1500 is accelrate and below 1500 is reverse
+  const unsigned int leftWheelGoSpeed = 1520;
   const unsigned int rightWheelGoSpeed = 1490;
 
   const unsigned int leftWheelStopSpeed = 1500;
   const unsigned int rightWheelStopSpeed = 1500;
 
-  const unsigned int leftWheelReverseSpeed = 1485;
-  const unsigned int rightWheelReverseSpeed = 1510;
+  const unsigned int leftWheelReverseSpeed = 1380;
+  const unsigned int rightWheelReverseSpeed = 1610;
 
-  const unsigned int leftWheelTurnSpeed = 1600;
-  const unsigned int rightWheelTurnSpeed = 1400;
+  const unsigned int leftWheelTurnSpeed = 1820;
+  const unsigned int rightWheelTurnSpeed = 1200;
 
   unsigned long lastTimeGo;
   unsigned long goDelay;

@@ -38,7 +38,7 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
       if (currentTime - turnStartTime > sharpTurnThreshold) {
         motor->sharpTurnLeft();
       } else {
-        motor->turnLeft();
+        motor->sharpTurnLeft();
       }
     }
     else if((leftState < 36) && (rightState > 36)){
@@ -49,7 +49,7 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
       if (currentTime - turnStartTime > sharpTurnThreshold){
         motor->sharpTurnRight();
       } else {
-        motor->turnRight();
+        motor->sharpTurnRight();
       }
     }
     else {
