@@ -22,7 +22,7 @@ private:
   const unsigned int leftWheelStopSpeed = 1500;
   const unsigned int rightWheelStopSpeed = 1500;
 
-  const unsigned int leftWheelReverseSpeed = 1490;
+  const unsigned int leftWheelReverseSpeed = 1485;
   const unsigned int rightWheelReverseSpeed = 1510;
 
   const unsigned int leftWheelTurnSpeed = 1600;
