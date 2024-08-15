@@ -19,6 +19,14 @@ class LedArray
   LedArray(const char* VersionNum);
 
   void printVersion();
+
+  void printLeftArrow();
+
+  void printRightArrow();
+
+  void printGo();
+
+  void printBrake();
 };
 
 #endif
