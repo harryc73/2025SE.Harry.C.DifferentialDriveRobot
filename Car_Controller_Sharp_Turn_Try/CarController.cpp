@@ -23,35 +23,44 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   void CarController::followLine()
   {
     unsigned long currentTime = millis();
+    unsigned int lineVal = 40;
     int leftState = lineSensor->readLeftState();
     int rightState = lineSensor->readRightState();
   
-    if((leftState < 36) && (rightState < 36)){
+    if((leftState < lineVal) && (rightState < lineVal)){
       motor->accelerate();
       turnStartTime = 0;
     }
-    else if((leftState > 36) && (rightState < 36)){
+    else if((leftState > lineVal) && (rightState < lineVal)){
       if (turnStartTime == 0) {
         turnStartTime = currentTime;
       }
 
       if (currentTime - turnStartTime > sharpTurnThreshold) {
-        motor->sharpTurnLeft();
+        motor->turnLeft();
       } else {
         motor->sharpTurnLeft();
+        delay(20);
       }
     }
-    else if((leftState < 36) && (rightState > 36)){
+    else if((leftState < lineVal) && (rightState > lineVal)){
       if (turnStartTime == 0) {
         turnStartTime = currentTime;
       }
 
       if (currentTime - turnStartTime > sharpTurnThreshold){
-        motor->sharpTurnRight();
+        motor->turnRight();
       } else {
         motor->sharpTurnRight();
+        delay(20);
       }
     }
+
+    else if((leftState > lineVal) && (rightState > lineVal)){
+      motor->slowReverse();
+      turnStartTime = 0;
+    }
+
     else {
       motor->brake();
       turnStartTime = 0;

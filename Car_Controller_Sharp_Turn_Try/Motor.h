@@ -25,11 +25,15 @@ private:
   const unsigned int leftWheelStopSpeed = 1500;
   const unsigned int rightWheelStopSpeed = 1500;
 
-  const unsigned int leftWheelReverseSpeed = 1380;
-  const unsigned int rightWheelReverseSpeed = 1610;
+  const unsigned int leftWheelReverseSpeed = 1300;
+  const unsigned int rightWheelReverseSpeed = 1680;
 
-  const unsigned int leftWheelTurnSpeed = 1820;
-  const unsigned int rightWheelTurnSpeed = 1200;
+  const unsigned int leftWheelSlowReverseSpeed = 1480;
+  const unsigned int rightWheelSlowReverseSpeed = 1510;
+
+  const unsigned int leftWheelTurnSpeed = 1680;
+  const unsigned int rightWheelTurnSpeed = 1330;
+  
 
   unsigned long lastTimeGo;
   unsigned long goDelay;
@@ -63,6 +67,8 @@ public:
   void sharpTurnLeft();
 
   void sharpTurnRight();
+
+  void slowReverse();
 
 };
 

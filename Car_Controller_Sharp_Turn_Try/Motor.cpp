@@ -82,6 +82,11 @@ Motor::Motor(byte leftPin, byte rightPin, unsigned long goDelay)
     setMotors(leftWheelReverseSpeed, rightWheelTurnSpeed);
   }
 
+  void Motor::slowReverse()
+  {
+    setMotors(leftWheelSlowReverseSpeed, rightWheelSlowReverseSpeed);
+  }
+
   unsigned long Motor::getGoDelay()
   {
     return goDelay;
