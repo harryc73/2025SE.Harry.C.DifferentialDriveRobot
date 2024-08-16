@@ -20,7 +20,7 @@ private:
   LedArray* VersionStatus;
 
   unsigned long turnStartTime = 0;
-  const unsigned long sharpTurnThreshold = 200;
+  const unsigned long sharpTurnThreshold = 300;
 
 public:
 
