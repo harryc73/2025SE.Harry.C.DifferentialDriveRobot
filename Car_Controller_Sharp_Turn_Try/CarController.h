@@ -22,7 +22,7 @@ private:
 
   unsigned int lineVal;
   unsigned long turnStartTime;
-  const unsigned long sharpTurnThreshold = 300;
+  const unsigned long sharpTurnThreshold = 500;
 
 public:
 

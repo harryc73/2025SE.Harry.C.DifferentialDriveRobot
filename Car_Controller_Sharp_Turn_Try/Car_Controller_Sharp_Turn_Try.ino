@@ -19,9 +19,10 @@ CarController carController(&lineSensor, &motor, &VersionStatus);
 
 
 void setup() {
+  Serial.begin(115200);
   carController.init();
 }
 
 void loop() {
-  carController.followLine();
+  carController.TestLines();
 }

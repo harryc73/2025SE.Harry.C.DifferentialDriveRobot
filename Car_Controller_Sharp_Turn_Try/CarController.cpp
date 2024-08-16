@@ -40,7 +40,6 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
         motor->turnLeft();
       } else {
         motor->sharpTurnLeft();
-        delay(20);
       }
     }
     else if((leftState < lineVal) && (rightState > lineVal)){
@@ -52,7 +51,6 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
         motor->turnRight();
       } else {
         motor->sharpTurnRight();
-        delay(20);
       }
     }
 
