@@ -6,7 +6,6 @@
 
 #include "LineSensor.h"
 #include "Motor.h"
-
 #include "LedArray.h"
 
 class CarController
