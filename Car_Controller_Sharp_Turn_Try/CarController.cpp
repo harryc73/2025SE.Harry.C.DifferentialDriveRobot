@@ -30,6 +30,7 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
     if((leftState < ValThreshold) && (rightState < ValThreshold)){
       motor->accelerate();
       turnStartTime = 0;
+      VersionStatus->printGo();
     }
     else if((leftState > ValThreshold) && (rightState < ValThreshold)){
       if (turnStartTime == 0) {
@@ -41,6 +42,7 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
       } else {
         motor->sharpTurnLeft();
       }
+      VersionStatus->printLeft();
     }
     else if((leftState < ValThreshold) && (rightState > ValThreshold)){
       if (turnStartTime == 0) {
@@ -52,11 +54,13 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
       } else {
         motor->sharpTurnRight();
       }
+      VersionStatus->printRight();
     }
 
     else {
       motor->brake();
       turnStartTime = 0;
+      VersionStatus->printBrake();
     }
     motor->update(); // while it looks different the values are given depending on the outcome of each loop to the update method which then writes the values to the motors, allowing for the delay
   }
@@ -65,6 +69,13 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   {
     motor->accelerate();
     motor->update();
+    delay(1000);
+    motor->reverse();
+    motor->update();
+    delay(1000);
+    motor->brake();
+    motor->update();
+    delay(1000);
   }
 
   void CarController::TestLines()

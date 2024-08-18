@@ -11,6 +11,7 @@ class LedArray
   private:
 
   const char* _VersionNum;
+  const char* status;
 
   public:
 
@@ -19,6 +20,17 @@ class LedArray
   LedArray(const char* VersionNum);
 
   void printVersion();
+
+  void updateStatus(const char* status);
+
+  void printLeft();
+
+  void printRight();
+
+  void printGo();
+
+  void printBrake();
+
 };
 
 #endif
