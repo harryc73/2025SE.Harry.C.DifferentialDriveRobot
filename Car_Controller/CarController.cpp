@@ -39,6 +39,10 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   void CarController::TestMotors()
   {
     motor->accelerate();
+    delay(1000);
+    motor->reverse();
+    delay(1000);
+    motor->brake();
   }
 
   void CarController::TestLines()
