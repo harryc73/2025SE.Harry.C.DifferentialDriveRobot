@@ -53,6 +53,30 @@ bool LineSensor::isRightLine()
     return false;
 }
 
+bool LineSensor::onLine()
+{
+  readState();
+  if ((leftState < ValThreshold) && (rightState < ValThreshold)){
+    return true;
+  }
+}
+
+bool LineSensor::onLeftLine()
+{
+  readState();
+  if ((leftState > ValThreshold) && (rightState < ValThreshold)){
+      return true;
+  }
+}
+
+bool LineSensor::onRightLine()
+{
+  readState();
+  if ((leftState < ValThreshold) && (rightState > ValThreshold)){
+    return true;
+  }
+}
+
 
 String LineSensor::getState()
 {

@@ -12,6 +12,8 @@ private:
   byte leftState;
   byte rightState;
 
+  const unsigned int ValThreshold = 36;
+
 public:
   LineSensor() {}
 
@@ -25,6 +27,10 @@ public:
   // need at some point
   bool isLeftLine();
   bool isRightLine();
+
+  bool onLine();
+  bool onLeftLine();
+  bool onRightLine();
 
   // testing methods
   byte readState();

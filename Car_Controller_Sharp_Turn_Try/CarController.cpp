@@ -10,6 +10,8 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   this->lineSensor = lineSensor;
   this->motor = motor;
   this->VersionStatus = VersionStatus;
+  int ValThreshold = 36;
+  unsigned long currentTime = millis();
 }
 
   void CarController::init()
@@ -30,7 +32,6 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
     if((leftState < ValThreshold) && (rightState < ValThreshold)){
       motor->accelerate();
       turnStartTime = 0;
-      VersionStatus->printGo();
     }
     else if((leftState > ValThreshold) && (rightState < ValThreshold)){
       if (turnStartTime == 0) {
@@ -42,7 +43,6 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
       } else {
         motor->sharpTurnLeft();
       }
-      VersionStatus->printLeft();
     }
     else if((leftState < ValThreshold) && (rightState > ValThreshold)){
       if (turnStartTime == 0) {
@@ -54,13 +54,11 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
       } else {
         motor->sharpTurnRight();
       }
-      VersionStatus->printRight();
     }
 
     else {
       motor->brake();
       turnStartTime = 0;
-      VersionStatus->printBrake();
     }
     motor->update(); // while it looks different the values are given depending on the outcome of each loop to the update method which then writes the values to the motors, allowing for the delay
   }
@@ -75,6 +73,18 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
     delay(1000);
     motor->brake();
     motor->update();
+    delay(1000);
+  }
+
+  void CarController::testLedArray()
+  {
+    VersionStatus->printGo();
+    delay(1000);
+    VersionStatus->printLeft();
+    delay(1000);
+    VersionStatus->printRight();
+    delay(1000);
+    VersionStatus->printBrake();
     delay(1000);
   }
 

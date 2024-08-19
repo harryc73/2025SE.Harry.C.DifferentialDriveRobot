@@ -36,6 +36,10 @@ public:
 
   void TestLines();
 
+  void testLedArray();
+
+  bool carGo();
+
 };
 
 #endif
