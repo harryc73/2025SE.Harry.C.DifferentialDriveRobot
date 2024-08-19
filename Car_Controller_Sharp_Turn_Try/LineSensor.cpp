@@ -58,6 +58,8 @@ bool LineSensor::onLine()
   readState();
   if ((leftState < ValThreshold) && (rightState < ValThreshold)){
     return true;
+  } else {
+    return false;
   }
 }
 
@@ -66,6 +68,8 @@ bool LineSensor::onLeftLine()
   readState();
   if ((leftState > ValThreshold) && (rightState < ValThreshold)){
       return true;
+  } else {
+    return false;
   }
 }
 
@@ -74,6 +78,8 @@ bool LineSensor::onRightLine()
   readState();
   if ((leftState < ValThreshold) && (rightState > ValThreshold)){
     return true;
+  } else {
+    return false;
   }
 }
 

@@ -36,6 +36,10 @@ public:
 
   void TestLines();
 
+  bool thresholdCheck();
+
+  void turnTime();
+
   void testLedArray();
 
   bool carGo();

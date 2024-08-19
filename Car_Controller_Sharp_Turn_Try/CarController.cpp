@@ -10,7 +10,6 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   this->lineSensor = lineSensor;
   this->motor = motor;
   this->VersionStatus = VersionStatus;
-  int ValThreshold = 36;
   unsigned long currentTime = millis();
 }
 
@@ -22,37 +21,48 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
 
   }
 
+  bool CarController::thresholdCheck()
+  {
+    unsigned long currentTime = millis();
+    if(currentTime - turnStartTime > sharpTurnThreshold) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void CarController::turnTime()
+  {
+    unsigned long currentTime = millis(); // gets current time
+    if (turnStartTime == 0) { // checks if its starts counting
+      turnStartTime = currentTime; // records at start time
+    }
+  }
+
+
   void CarController::followLine()
   {
-    int ValThreshold = 36;
-    unsigned long currentTime = millis();
-    int leftState = lineSensor->readLeftState();
-    int rightState = lineSensor->readRightState();
-  
-    if((leftState < ValThreshold) && (rightState < ValThreshold)){
+
+   if(lineSensor->onLine()){
       motor->accelerate();
       turnStartTime = 0;
     }
-    else if((leftState > ValThreshold) && (rightState < ValThreshold)){
-      if (turnStartTime == 0) {
-        turnStartTime = currentTime;
-      }
+    else if(lineSensor->onLeftLine()){
+      turnTime();
 
-      if (currentTime - turnStartTime > sharpTurnThreshold) {
-        motor->turnLeft();
-      } else {
+      if (thresholdCheck()) {
         motor->sharpTurnLeft();
+      } else {
+        motor->turnLeft();
       }
     }
-    else if((leftState < ValThreshold) && (rightState > ValThreshold)){
-      if (turnStartTime == 0) {
-        turnStartTime = currentTime;
-      }
+    else if(lineSensor->onRightLine()){
+      turnTime();
 
-      if (currentTime - turnStartTime > sharpTurnThreshold){
-        motor->turnRight();
-      } else {
+      if (thresholdCheck()){
         motor->sharpTurnRight();
+      } else {
+        motor->turnRight();
       }
     }
 
