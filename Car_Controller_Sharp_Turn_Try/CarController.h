@@ -19,6 +19,10 @@ private:
   Motor* motor;
   LedArray* VersionStatus;
 
+  String currentMovement;
+  unsigned long lastTimeBlink;
+  const unsigned long blinkDelay = 500; 
+
   unsigned long turnStartTime = 0;
   const unsigned long sharpTurnThreshold = 300;
 
@@ -39,6 +43,8 @@ public:
   bool thresholdCheck();
 
   void turnTime();
+
+  void updateLedMovements();
 
   void testLedArray();
 
