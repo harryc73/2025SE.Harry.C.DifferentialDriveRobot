@@ -84,15 +84,15 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   {
     unsigned long currentTime = millis();
     if (currentTime - lastTimeBlink >= blinkDelay) {
-        if (currentMovement == "GO") {
+        if (currentMovement == "Go") {
           VersionStatus->printGo();
         } 
-        else if (currentMovement == "LEFT") {
+        else if (currentMovement == "Left") {
           VersionStatus->printLeft();
         } 
-        else if (currentMovement == "RIGHT") {
+        else if (currentMovement == "Right") {
           VersionStatus->printRight();
-        } else if (currentMovement == "BRAKE") {
+        } else if (currentMovement == "Brake") {
           VersionStatus->printBrake();
         }
       lastTimeBlink = currentTime;
