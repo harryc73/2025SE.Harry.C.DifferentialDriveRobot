@@ -24,7 +24,7 @@ private:
   const unsigned long blinkDelay = 500; 
 
   unsigned long turnStartTime = 0;
-  const unsigned long sharpTurnThreshold = 300;
+  const unsigned long sharpTurnThreshold = 150;
 
 public:
 

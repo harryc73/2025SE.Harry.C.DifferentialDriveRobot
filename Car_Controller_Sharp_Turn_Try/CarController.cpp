@@ -47,12 +47,12 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
 
    if(lineSensor->onLine()){
       motor->accelerate();
-      currentMovement = "Go";
+      //currentMovement = "Go";
       turnStartTime = 0;
     }
     else if(lineSensor->onLeftLine()){
       turnTime();
-      currentMovement = "Left";
+      //currentMovement = "Left";
 
       if (thresholdCheck()) {
         motor->sharpTurnLeft();
@@ -62,7 +62,7 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
     }
     else if(lineSensor->onRightLine()){
       turnTime();
-      currentMovement = "Right"; 
+      //currentMovement = "Right"; 
 
       if (thresholdCheck()){
         motor->sharpTurnRight();
@@ -73,11 +73,11 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
 
     else {
       motor->brake();
-      currentMovement = "Brake";
+      //currentMovement = "Brake";
       turnStartTime = 0;
     }
     motor->update(); // while it looks different the values are given depending on the outcome of each loop to the update method which then writes the values to the motors, allowing for the delay
-    updateLedMovements(); // if not working remove this
+    //updateLedMovements(); // if not working remove this
   }
 
   void CarController::updateLedMovements() 
