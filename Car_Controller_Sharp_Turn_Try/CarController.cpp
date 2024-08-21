@@ -23,27 +23,27 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
 
   }
 
+  void CarController::turnTime()
+  {
+    if (turnStartTime == 0) { // checks if its starts counting
+      turnStartTime = currentTime; // records at start time
+    }
+  }
+
   bool CarController::thresholdCheck()
   {
-    unsigned long currentTime = millis();
-    if(currentTime - turnStartTime > sharpTurnThreshold) {
+    if(currentTime - turnStartTime > sharpTurnThreshold) { 
       return true;
     } else {
       return false;
     }
   }
 
-  void CarController::turnTime()
-  {
-    unsigned long currentTime = millis(); // gets current time
-    if (turnStartTime == 0) { // checks if its starts counting
-      turnStartTime = currentTime; // records at start time
-    }
-  }
-
 
   void CarController::followLine()
   {
+
+  unsigned long currentTime = millis(); // current time
 
    if(lineSensor->onLine()){
       motor->accelerate();
@@ -55,9 +55,9 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
       //currentMovement = "Left";
 
       if (thresholdCheck()) {
-        motor->sharpTurnLeft();
-      } else {
         motor->turnLeft();
+      } else {
+        motor->sharpTurnLeft();
       }
     }
     else if(lineSensor->onRightLine()){
@@ -65,9 +65,9 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
       //currentMovement = "Right"; 
 
       if (thresholdCheck()){
-        motor->sharpTurnRight();
-      } else {
         motor->turnRight();
+      } else {
+        motor->sharpTurnRight();
       }
     }
 

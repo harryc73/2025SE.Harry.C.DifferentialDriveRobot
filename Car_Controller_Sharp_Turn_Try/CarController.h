@@ -24,7 +24,9 @@ private:
   const unsigned long blinkDelay = 500; 
 
   unsigned long turnStartTime = 0;
-  const unsigned long sharpTurnThreshold = 150;
+  const unsigned long sharpTurnThreshold = 120;
+
+  unsigned long currentTime = millis();
 
 public:
 

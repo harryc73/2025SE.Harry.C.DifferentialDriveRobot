@@ -6,7 +6,7 @@ Motor::Motor(byte leftPin, byte rightPin)
   {
     this->_pinLeft = leftPin;
     this->_pinRight = rightPin;
-    goDelay = 100;
+    goDelay = 50;
     lastTimeGo = 0;
     leftSpeed = leftWheelStopSpeed;
     rightSpeed = rightWheelStopSpeed;
