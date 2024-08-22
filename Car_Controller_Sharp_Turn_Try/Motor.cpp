@@ -44,7 +44,7 @@ Motor::Motor(byte leftPin, byte rightPin, unsigned long goDelay)
       leftServo.writeMicroseconds(leftSpeed);
       rightServo.writeMicroseconds(rightSpeed);
       lastTimeGo = currentTime;
-  }
+    }
   }
 
   void Motor::accelerate()
