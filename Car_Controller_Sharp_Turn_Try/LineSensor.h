@@ -34,7 +34,6 @@ public:
 
   // testing methods
   byte readState();
-  String getState();
 
 
 };

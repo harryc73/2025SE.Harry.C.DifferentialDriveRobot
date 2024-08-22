@@ -52,25 +52,3 @@ bool LineSensor::onRightLine()
   readState();
   return (leftState < ValThreshold) && (rightState > ValThreshold);
 }
-
-
-String LineSensor::getState()
-{
-  readState();
-
-  String state = "Left: "; // String so it can be a string
-
-  if(leftState == HIGH)
-    state += "No Line Detected";
-  else
-    state += "Line Detected";
-
-  state += " Right: ";
-  
-  if(rightState == HIGH)
-    state += "No Line Detected";
-  else
-    state += "Line Detected";
-  
-  return state;
-}
