@@ -29,7 +29,7 @@ public:
   bool onRightLine();
 
   // testing methods
-  void readState();
+  byte readState();
   String getState();
 
 
