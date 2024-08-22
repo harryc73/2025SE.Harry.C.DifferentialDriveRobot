@@ -10,7 +10,7 @@
 #define LEFT_LINE_PIN 2
 #define RIGHT_LINE_PIN 3
 
-static const char* VersionNum = "V00.00.01";
+static const char* VersionNum = "V03.00.00";
 
 LineSensor lineSensor(LEFT_LINE_PIN, RIGHT_LINE_PIN);
 Motor motor(LEFT_SERVO_PIN, RIGHT_SERVO_PIN);
