@@ -37,16 +37,19 @@ byte LineSensor::readState()
 
 bool LineSensor::onLine()
 {
+  readState();
   return (leftState < ValThreshold) && (rightState < ValThreshold);
 }
 
 bool LineSensor::onLeftLine()
 {
+  readState();
   return (leftState > ValThreshold) && (rightState < ValThreshold);
 }
 
 bool LineSensor::onRightLine()
 {
+  readState();
   return (leftState < ValThreshold) && (rightState > ValThreshold);
 }
 
