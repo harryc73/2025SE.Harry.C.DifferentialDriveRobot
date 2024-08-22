@@ -26,7 +26,7 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
 
   void CarController::turnTime()
   {
-    if (turnStartTime == 0) { // checks if its starts counting
+    if (turnStartTime == 0){ // checks if its starts counting
       turnStartTime = currentTime; // records at start time
     }
   }
@@ -53,7 +53,7 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
       turnTime();
       //currentMovement = "Left";
 
-      if (thresholdCheck()) {
+      if (thresholdCheck()){
         motor->turnLeft();
       } else {
         motor->sharpTurnLeft();
