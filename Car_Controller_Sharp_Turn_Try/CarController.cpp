@@ -89,10 +89,10 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
     if (currentMovement == "Go") {
       VersionStatus->printGo();
     } 
-    else if (currentMovement == "Left") {
+    else if (currentMovement == "Left"){
       VersionStatus->printLeft();
     } 
-    else if (currentMovement == "Right") {
+    else if (currentMovement == "Right"){
       VersionStatus->printRight();
     } else if (currentMovement == "Brake") {
       VersionStatus->printBrake();

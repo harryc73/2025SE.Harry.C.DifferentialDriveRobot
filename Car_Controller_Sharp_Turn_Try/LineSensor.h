@@ -24,16 +24,12 @@ public:
   int readLeftState();
   int readRightState();
 
-  // need at some point
-  bool isLeftLine();
-  bool isRightLine();
-
   bool onLine();
   bool onLeftLine();
   bool onRightLine();
 
   // testing methods
-  byte readState();
+  int readState();
   String getState();
 
 

@@ -29,28 +29,10 @@ int LineSensor::readRightState()
 }
 
 
-byte LineSensor::readState()
+int LineSensor::readState()
 {
   leftState = analogRead(_leftPin);
   rightState = analogRead(_rightPin);
-}
-
-bool LineSensor::isLeftLine()
-{
-  readState();
-  if(leftState == HIGH)
-    return true;
-  else
-    return false;
-}
-
-bool LineSensor::isRightLine()
-{
-  readState();
-  if(rightState == HIGH)
-    return true;
-  else
-    return false;
 }
 
 bool LineSensor::onLine()
