@@ -12,6 +12,7 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   this->VersionStatus = VersionStatus;
   unsigned long currentTime = millis();
   lastTimeBlink = 0;
+  blinkDelay = 500;
   currentMovement = "";
 }
 
@@ -78,11 +79,17 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
     }
     motor->update(); // while it looks different the values are given depending on the outcome of each loop to the update method which then writes the values to the motors, allowing for the delay
     //if (currentTime - lastTimeBlink >= blinkDelay){
+<<<<<<< Updated upstream
+=======
+      //updateLedMovements();
+      //lastTimeBlink = currentTime;
+>>>>>>> Stashed changes
     //updateLedMovements();
   }
 
   void CarController::updateLedMovements() 
   {
+<<<<<<< Updated upstream
     if (currentMovement == "Go") {
       VersionStatus->printGo();
     } 
@@ -94,6 +101,19 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
     } else if (currentMovement == "Brake") {
       VersionStatus->printBrake();
     }
+=======
+        if (currentMovement == "Go"){
+          VersionStatus->printGo();
+        } 
+        else if (currentMovement == "Left"){
+          VersionStatus->printLeft();
+        } 
+        else if (currentMovement == "Right"){
+          VersionStatus->printRight();
+        } else if (currentMovement == "Brake"){
+          VersionStatus->printBrake();
+        }
+>>>>>>> Stashed changes
   lastTimeBlink = currentTime;
   }
 
@@ -109,6 +129,12 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
     motor->update();
     delay(1000);
     motor->brake();
+    motor->update();
+    delay(1000);
+    motor->sharpTurnLeft();
+    motor->update();
+    delay(1000);
+    motor->sharpTurnRight();
     motor->update();
     delay(1000);
   }
