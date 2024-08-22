@@ -9,10 +9,10 @@ private:
   byte _leftPin;
   byte _rightPin;
 
+  const unsigned int ValThreshold = 32;
+
   byte leftState;
   byte rightState;
-
-  const unsigned int ValThreshold = 32;
 
 public:
   LineSensor() {}
@@ -31,9 +31,6 @@ public:
   // testing methods
   byte readState();
   // void readState();
-  String getState();
-
-
 };
 
 #endif

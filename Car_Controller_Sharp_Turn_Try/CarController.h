@@ -50,8 +50,6 @@ public:
 
   void testLedArray();
 
-  bool carGo();
-
 };
 
 #endif
