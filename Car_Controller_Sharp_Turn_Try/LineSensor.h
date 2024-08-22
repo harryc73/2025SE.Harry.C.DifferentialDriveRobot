@@ -12,7 +12,7 @@ private:
   byte leftState;
   byte rightState;
 
-  const unsigned int ValThreshold = 36;
+  const unsigned int ValThreshold = 32;
 
 public:
   LineSensor() {}

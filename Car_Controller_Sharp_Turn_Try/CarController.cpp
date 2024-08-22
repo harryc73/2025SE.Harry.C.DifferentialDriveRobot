@@ -77,26 +77,24 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
       turnStartTime = 0;
     }
     motor->update(); // while it looks different the values are given depending on the outcome of each loop to the update method which then writes the values to the motors, allowing for the delay
-    //updateLedMovements(); // if not working remove this
+    //if (currentTime - lastTimeBlink >= blinkDelay){
+    //updateLedMovements();
   }
 
   void CarController::updateLedMovements() 
   {
-    unsigned long currentTime = millis();
-    if (currentTime - lastTimeBlink >= blinkDelay) {
-        if (currentMovement == "Go") {
-          VersionStatus->printGo();
-        } 
-        else if (currentMovement == "Left") {
-          VersionStatus->printLeft();
-        } 
-        else if (currentMovement == "Right") {
-          VersionStatus->printRight();
-        } else if (currentMovement == "Brake") {
-          VersionStatus->printBrake();
-        }
-      lastTimeBlink = currentTime;
+    if (currentMovement == "Go") {
+      VersionStatus->printGo();
+    } 
+    else if (currentMovement == "Left") {
+      VersionStatus->printLeft();
+    } 
+    else if (currentMovement == "Right") {
+      VersionStatus->printRight();
+    } else if (currentMovement == "Brake") {
+      VersionStatus->printBrake();
     }
+  lastTimeBlink = currentTime;
   }
 
 
