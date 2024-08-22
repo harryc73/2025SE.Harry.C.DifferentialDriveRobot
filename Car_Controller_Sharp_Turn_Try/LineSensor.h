@@ -9,7 +9,7 @@ private:
   byte _leftPin;
   byte _rightPin;
 
-  const unsigned int ValThreshold = 32;
+  const unsigned int ValThreshold = 34;
 
   byte leftState;
   byte rightState;
@@ -29,8 +29,28 @@ public:
   bool onRightLine();
 
   // testing methods
-  byte readState();
+  void readState();
   // void readState();
 };
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

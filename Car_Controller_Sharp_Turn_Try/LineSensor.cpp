@@ -29,7 +29,7 @@ int LineSensor::readRightState()
 }
 
 
-byte LineSensor::readState()
+void LineSensor::readState()
 {
   leftState = analogRead(_leftPin);
   rightState = analogRead(_rightPin);

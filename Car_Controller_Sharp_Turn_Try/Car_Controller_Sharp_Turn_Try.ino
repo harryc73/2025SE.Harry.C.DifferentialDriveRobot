@@ -19,6 +19,7 @@ CarController carController(&lineSensor, &motor, &VersionStatus);
 
 
 void setup() {
+  Serial.begin(115200);
   carController.init();
 }
 
