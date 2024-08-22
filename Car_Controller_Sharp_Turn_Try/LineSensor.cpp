@@ -29,7 +29,7 @@ int LineSensor::readRightState()
 }
 
 
-int LineSensor::readState()
+void LineSensor::readState()
 {
   leftState = analogRead(_leftPin);
   rightState = analogRead(_rightPin);
@@ -37,38 +37,22 @@ int LineSensor::readState()
 
 bool LineSensor::onLine()
 {
-  readState();
-  if ((leftState < ValThreshold) && (rightState < ValThreshold)){
-    return true;
-  } else {
-    return false;
-  }
+  return (leftState < ValThreshold) && (rightState < ValThreshold);
 }
 
 bool LineSensor::onLeftLine()
 {
-  readState();
-  if ((leftState > ValThreshold) && (rightState < ValThreshold)){
-      return true;
-  } else {
-    return false;
-  }
+  return (leftState > ValThreshold) && (rightState < ValThreshold);
 }
 
 bool LineSensor::onRightLine()
 {
-  readState();
-  if ((leftState < ValThreshold) && (rightState > ValThreshold)){
-    return true;
-  } else {
-    return false;
-  }
+  return (leftState < ValThreshold) && (rightState > ValThreshold);
 }
 
 
 String LineSensor::getState()
 {
-  readState();
 
   String state = "Left: "; // String so it can be a string
 

@@ -33,11 +33,7 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
 
   bool CarController::thresholdCheck()
   {
-    if(currentTime - turnStartTime > sharpTurnThreshold) { 
-      return true;
-    } else {
-      return false;
-    }
+    return (currentTime - turnStartTime > sharpTurnThreshold);
   }
 
 
@@ -45,6 +41,8 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   {
 
   unsigned long currentTime = millis(); // current time
+
+  lineSensor->readState();
 
    if(lineSensor->onLine()){
       motor->accelerate();
