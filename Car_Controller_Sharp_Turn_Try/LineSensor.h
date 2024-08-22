@@ -30,6 +30,7 @@ public:
 
   // testing methods
   byte readState();
+  // void readState();
   String getState();
 
 
