@@ -35,14 +35,6 @@ void LineSensor::readState()
   rightState = analogRead(_rightPin);
 }
 
-//void LineSensor::readState()
-//{
-  //leftState = analogRead(_leftPin);
-  //rightState = analogRead(_rightPin);
-//}
-
-
-
 
 bool LineSensor::onLine()
 {

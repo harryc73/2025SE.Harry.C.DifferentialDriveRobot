@@ -40,8 +40,6 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
   void CarController::followLine()
   {
 
-  unsigned long currentTime = millis(); // current time
-
   lineSensor->readState();
 
    if(lineSensor->onLine()){
