@@ -45,6 +45,8 @@ CarController::CarController(LineSensor* lineSensor, Motor* motor, LedArray* Ver
 
   unsigned long currentTime = millis(); // current time
 
+  lineSensor->readState();
+
    if(lineSensor->onLine()){
       motor->accelerate();
       //currentMovement = "Go";

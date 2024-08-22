@@ -35,52 +35,19 @@ byte LineSensor::readState()
   rightState = analogRead(_rightPin);
 }
 
-bool LineSensor::isLeftLine()
-{
-  readState();
-  if(leftState == HIGH)
-    return true;
-  else
-    return false;
-}
-
-bool LineSensor::isRightLine()
-{
-  readState();
-  if(rightState == HIGH)
-    return true;
-  else
-    return false;
-}
-
 bool LineSensor::onLine()
 {
-  readState();
-  if ((leftState < ValThreshold) && (rightState < ValThreshold)){
-    return true;
-  } else {
-    return false;
-  }
+  return (leftState < ValThreshold) && (rightState < ValThreshold);
 }
 
 bool LineSensor::onLeftLine()
 {
-  readState();
-  if ((leftState > ValThreshold) && (rightState < ValThreshold)){
-      return true;
-  } else {
-    return false;
-  }
+  return (leftState > ValThreshold) && (rightState < ValThreshold);
 }
 
 bool LineSensor::onRightLine()
 {
-  readState();
-  if ((leftState < ValThreshold) && (rightState > ValThreshold)){
-    return true;
-  } else {
-    return false;
-  }
+  return (leftState < ValThreshold) && (rightState > ValThreshold);
 }
 
 
