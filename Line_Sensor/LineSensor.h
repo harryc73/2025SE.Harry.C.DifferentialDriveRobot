@@ -9,6 +9,8 @@ private:
   byte _leftPin;
   byte _rightPin;
 
+  const unsigned int ValThreshold = 34;
+
   byte leftState;
   byte rightState;
 
@@ -22,15 +24,13 @@ public:
   int readLeftState();
   int readRightState();
 
-  // need at some point
-  bool isLeftLine();
-  bool isRightLine();
+  bool onLine();
+  bool onLeftLine();
+  bool onRightLine();
 
   // testing methods
-  byte readState();
-  String getState();
-
-
+  void readState();
+  // void readState();
 };
 
 #endif
